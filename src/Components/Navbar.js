@@ -3,6 +3,16 @@ import navStyle from './navbar.module.css';
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
+
+    const navLinkStyles=({isActive})=> {
+        return {
+          fontWeight: isActive ? 'bold' : 'normal',
+          textDecoration:isActive? 'none':'none',
+          color:'blue'
+         
+        }
+    
+      }
     return (
         <>
             <nav>
@@ -11,8 +21,8 @@ function Navbar() {
                         <h2>Routing</h2>
                     </div>
                     <div className={navStyle.navigate}>
-                        <NavLink to='/home'><p>Home</p></NavLink>
-                        <NavLink to='/contacts'><p>Contacts</p></NavLink>
+                        <p><NavLink to='/home' style={navLinkStyles} >Home</NavLink></p>
+                        <p><NavLink to='/contacts' style={navLinkStyles}>Contacts</NavLink></p>
 
                     </div>
                 </div>
